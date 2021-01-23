@@ -15,5 +15,6 @@ public interface IUserInterfaceContract {
         void updateBoard(SudokuGame game);
         void showDialog(String msg);
         void showBoard(String msg);
+        void showError(String msg);
     }
 }
