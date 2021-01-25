@@ -36,6 +36,7 @@ public class SudokuSolver {
                 }
             }
         }
+        return false;
     }
 
     private static Coordinates[] typeWriterEnumerate(int[][] puzzle) {
@@ -53,5 +54,7 @@ public class SudokuSolver {
                 }
             }
         }
+        return emptyCells;
     }
+
 }

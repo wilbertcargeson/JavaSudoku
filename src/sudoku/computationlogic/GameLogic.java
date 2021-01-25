@@ -32,12 +32,14 @@ public class GameLogic {
                 if (grid[xIndex][yIndex] == 0) return true;
             }
         }
+        return false;
     }
 
     static boolean sudokuIsInvalid(int[][] grid) {
         if (rowsAreInvalid(Rows.TOP, grid)) return true;
         if (columnsAreInvalid(Rows.MIDDLE, grid)) return true;
         if (squaresAreInvalid(Rows.BOTTOM, grid)) return true;
+        return false;
 
     }
 
@@ -68,6 +70,7 @@ public class GameLogic {
                 if(squareIsInvalid(6,6,grid)) return true;
                 return false;
         }
+        return false;
     }
 
     private static boolean squareIsInvalid(int xIndex, int yIndex, int[][] grid) {
@@ -106,9 +109,20 @@ public class GameLogic {
 
             if (collectionHasRepeats(row)) return true;
         }
+        return false;
+
     }
 
     private static boolean rowsAreInvalid(Rows top, int[][] grid) {
-        
+        for (int yIndex = 0; yIndex < GRID_BOUNDARY; yIndex++) {
+            List<Integer> row = new ArrayList<>();
+            for (int xIndex = 0; xIndex < GRID_BOUNDARY; xIndex++) {
+                row.add(grid[xIndex][yIndex]);
+            }
+
+            if (collectionHasRepeats(row)) return true;
+        }
+
+        return false;
     }
 }
