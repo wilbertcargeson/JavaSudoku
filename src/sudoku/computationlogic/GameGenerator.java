@@ -11,10 +11,10 @@ import static sudoku.problemdomain.SudokuGame.GRID_BOUNDARY;
 public class GameGenerator {
 
     public static int[][] getNewGridGame(){
-        return unsolveGame(getSolvedGame());
+        return unsolvedGame(getSolvedGame());
     }
 
-    private static int[][] unsolveGame(int[][] solvedGame) {
+    private static int[][] unsolvedGame(int[][] solvedGame) {
         Random random = new Random(System.currentTimeMillis());
 
         boolean solvable = false;

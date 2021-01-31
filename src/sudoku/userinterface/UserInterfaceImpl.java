@@ -40,12 +40,6 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
     private static final Color BOARD_BACKGROUND_COLOR = Color.rgb(224,242,241);
     private static final String SUDOKU = "Sudoku";
 
-//    public UserInterfaceImpl(Stage stage, Group root) {
-//        this.stage = stage;
-//        this.root = root;
-//        this.textFieldCoordinates = new HashMap<>();
-//        initializeUserInterface();
-//    }
 
     public UserInterfaceImpl(Stage stage) {
         this.stage = stage;
@@ -149,16 +143,18 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
             );
 
             Rectangle horizontalLine = getLine(
-                    xAndY + 64 * index,
-                    BOARD_PADDING,
-                    thickness,
-                    BOARD_X_AND_Y
-                    );
+                BOARD_PADDING,
+                xAndY + 64 * index,
+                thickness,
+                BOARD_X_AND_Y
+            );
 
             // Add new elements into the UI
             root.getChildren().addAll(
                     verticalLine, horizontalLine
             );
+
+            index++;
         }
     }
 
@@ -204,7 +200,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
 
     @Override
     public void setListener(IUserInterfaceContract.EventListener listener) {
-
+        this.listener = listener;
     }
 
     @Override
@@ -266,4 +262,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
     public void showBoard(String msg) {
 
     }
+
+
+
 }

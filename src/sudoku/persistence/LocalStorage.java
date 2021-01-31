@@ -33,7 +33,7 @@ public class LocalStorage implements IStorage {
             objectInputStream.close();
             return gameState;
         } catch (IOException | ClassNotFoundException e){
-            throw new IOException("File Not Founf");
+            throw new IOException("File Not Found");
 
         }
     }
